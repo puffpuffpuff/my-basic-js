@@ -99,3 +99,48 @@ on Javascript:
 
     Collapsible();
 ```
+
+
+## Masonry Grid
+
+Create grid that inspire by masonry grid
+
+### required files:
+
+- js/modules/MasonryGrid.js
+- sass/modules/_gridtiles.scss
+
+### Application:
+
+on Html:
+
+add wrapper class that wrap each of the content will later be used by javascript
+```html
+    <div class="tile">
+        <div class="tile-item">
+            <div class="wrapper-class">Content goes here</div>
+        </div>
+        <div class="tile-item">
+            <div class="wrapper-class">Content goes here</div>
+        </div>
+    </div>
+```
+
+On sass file, change the repeat count into the number of column you desired:
+```css
+    grid-template-columns: repeat(2, minmax(100px,1fr));
+```
+
+on Javascript:
+
+import the script
+```javascript
+    import Collapsible from './modules/MasonryGrid';
+
+    MasonryGrid();
+```
+
+adjust the wrapper class name according to class element that wrap each content on MasonryGrid.js
+```javascript
+    let wrapper = ".wrapper-class";
+```
