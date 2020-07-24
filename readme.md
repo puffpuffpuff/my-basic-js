@@ -8,6 +8,7 @@ This repo contain documentation for certain script that often use in web develop
 - Lazyload Background
 - Collapsible
 - Masonry Grid
+- Infinite Carousel
 
 
 ## Lazyload Image
@@ -143,4 +144,30 @@ import the script
 adjust the wrapper class name according to class element that wrap each content on MasonryGrid.js
 ```javascript
     let wrapper = ".wrapper-class";
+```
+
+
+
+## Swipe Event
+
+Add swipe event listener for touch screen devices
+
+### required files:
+
+- js/modules/SwipeEvent.js
+
+### Application:
+
+on Javascript:
+
+import the script first 
+```javascript
+    require('./modules/SwipeEvent');
+```
+
+there are for event type `swiped-left`,`swiped-right`,`swiped-up`,`swiped-down`
+to ignore the swipe event on element add `data-swipe-ignore="true"`
+below is example when listening to swipe left event:
+```javascript
+    el.addEventListener('swiped-left',(e)=>{/*callback function*/})
 ```
