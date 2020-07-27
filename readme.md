@@ -8,7 +8,9 @@ This repo contain documentation for certain script that often use in web develop
 - Lazyload Background
 - Collapsible
 - Masonry Grid
-- Infinite Carousel
+- Swipe Event
+- Carousel Slider for Clients
+- 
 
 
 ## Lazyload Image
@@ -136,7 +138,7 @@ on Javascript:
 
 import the script
 ```javascript
-    import Collapsible from './modules/MasonryGrid';
+    import MasonryGrid from './modules/MasonryGrid';
 
     MasonryGrid();
 ```
@@ -170,4 +172,57 @@ to ignore the swipe event on element add `data-swipe-ignore="true"`
 below is example when listening to swipe left event:
 ```javascript
     el.addEventListener('swiped-left',(e)=>{/*callback function*/})
+```
+
+
+
+## Carousel Slider for Clients
+
+Carousel Slider for clients
+
+### required files:
+
+- js/modules/SwipeEvent.js
+- js/modules/CarouselSlider.js
+- sass/modules/_carousel.scss
+
+### Application:
+
+on Javascript:
+
+makesure SwapEvent loaded in `app.js `
+```javascript
+    require('./modules/SwipeEvent');
+
+    import CarouselSlider from './modules/CarouselSlider';  
+    
+    CarouselSlider();
+```
+
+Setup:
+- wrapper: container that has overflow hidden with max width no more than device width
+- content container: element that will hold all carousel content
+- content class: element that will store each content
+- swipe area: element that will listen to swipe event, element width must be equal to wrapper width and height equal to content container, also it must be covering the content container
+- control Area: element used for storing all the bullet and control for carousel
+
+```html
+<div id="wrapper">
+    <div id="contentContainer">
+        <div class="contentClass"></div>
+        <div class="contentClass"></div>
+        <div class="contentClass"></div>
+    </div>
+    <div id="swipeArea"></div>
+    <div class="controlArea"></div>
+</div>
+```
+
+on `js//modules/CarouselSlider` change bellow variable according to class/id above
+```javascript
+    controlClass = '.controlArea',
+    swipeId = 'swipeArea',
+    wrapperId = 'wrapper',
+    contentContainerId = 'contentContainer',
+    contentClass = '.contentClass';
 ```
